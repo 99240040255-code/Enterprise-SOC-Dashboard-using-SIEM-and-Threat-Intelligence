@@ -1,0 +1,12 @@
+import { NextResponse } from "next/server";
+import { randomUUID } from "crypto";
+import { MongoClient } from "mongodb";
+
+const globalState = globalThis;
+
+const iocSeed = [
+  { id: "ioc-otx-001", type: "ip", value: "185.220.101.17", category: "Command & Control", malware: "Cobalt Strike", confidence: 98, source: "AlienVault OTX", firstSeen: "2026-07-19" },
+  { id: "ioc-otx-002", type: "ip", value: "45.148.10.22", category: "Credential Access", malware: "RedLine Stealer", confidence: 94, source: "ThreatFox", firstSeen: "2026-07-28" },
+  { id: "ioc-otx-003", type: "domain", value: "cdn-update-check.com", category: "Malware Distribution", malware: "QakBot", confidence: 97, source: "AlienVault OTX", firstSeen: "2026-08-01" },
+  { id: "ioc-otx-004", type: "hash", value: "b7e23ec29af22b0b4f6d8a7f7e4c9d8a1c2b3d4e5f60718293a4b5c6d7e8f901", category: "Execution", malware: "PowerShell Empire", confidence: 99, source: "ThreatFox", firstSeen: "2026-08-03" },
+  { id: "ioc-otx-005", type: "ip", value: "91.240.118.172", category: "Initial Access", malware: "LockBit", confidence: 91, source: "AlienVault OTX", firstSeen: "2026-08-05" },
