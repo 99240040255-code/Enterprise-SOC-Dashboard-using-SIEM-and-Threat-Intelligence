@@ -1,0 +1,47 @@
+# Testing Data - Main Agent and testing sub agent both should log testing data below this section
+#====================================================================================================
+
+## user_problem_statement: Enterprise SOC dashboard with integrated Next.js real-time telemetry, local IoC enrichment, alert console, MITRE mapping, and analyst actions
+## backend:
+##   - task: "Integrated telemetry and threat enrichment API"
+##     implemented: true
+##     working: NA
+##     file: "/app/app/api/[[...path]]/route.js"
+##     stuck_count: 0
+##     priority: "high"
+##     needs_retesting: true
+##     status_history:
+##         -working: NA
+##         -agent: "main"
+##         -comment: "Implemented GET /api/telemetry, GET /api/health, GET /api/rules, PATCH /api/alerts/:id, POST /api/actions/block-ip; generates ECS-like events, enriches local AlienVault OTX/ThreatFox-shaped IoCs, persists when Mongo is available, and falls back to in-process state during transient DB failures."
+##
+## frontend:
+##   - task: "SOC dashboard interface"
+##     implemented: true
+##     working: NA
+##     file: "/app/app/page.js"
+##     stuck_count: 0
+##     priority: "high"
+##     needs_retesting: false
+##     status_history:
+##         -working: NA
+##         -agent: "main"
+##         -comment: "Implemented dark SOC dashboard with live polling, metrics, threat surface, auth chart, process feed, MITRE coverage, IoC feed, alert status actions, and IP containment action."
+##
+## metadata:
+##   created_by: "main_agent"
+##   version: "1.0"
+##   test_sequence: 1
+##   run_ui: false
+##
+## test_plan:
+##   current_focus:
+##     - "Integrated telemetry and threat enrichment API"
+##     - "Alert status update and IP block action"
+##   stuck_tasks: []
+##   test_all: false
+##   test_priority: "high_first"
+##
+## agent_communication:
+##     -agent: "main"
+##     -message: "Backend testing requested first per protocol. Verify API routes through the running Next.js service without curl, confirm JSON shape, enrichment matches, rate bounds, alert mutation, block action, health behavior, and Mongo fallback behavior."
